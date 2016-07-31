@@ -5,10 +5,10 @@ SELECT b.name,
        (b.discontinued-m.year) AS
          years_until_brand_discontinued
 FROM models AS m
- LEFT JOIN brands AS b
- ON m.brand_name = b.name
- WHERE b.discontinued IS NOT NULL
- ORDER BY b.name, m.name, m.year;
+LEFT JOIN brands AS b
+ON m.brand_name = b.name
+WHERE b.discontinued IS NOT NULL
+ORDER BY b.name, m.name, m.year;
 
 --     name    |       name       | year  | discontinued | years_until_brand_discontinued 
 -- ------------+------------------+-------+--------------+--------------------------------
