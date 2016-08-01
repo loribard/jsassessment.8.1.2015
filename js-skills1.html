@@ -384,17 +384,10 @@
 
   function fillDiv(evt) {
     evt.preventDefault();
-    // new-string(evt);
-    // $("#agreeable-form").remove('action');
-
-    var newString = "I like "+ $("#favorite-food-input").val() + " too! ";
-   
+    var newString = "I like "+ $("#favorite-food-input").val() + " too! ";  
     $("#agreeable-text").append(newString); 
   }
-    // 
-    // $("#agreeable-form").removeAttr('action');
-    // $("input[type='submit'][value='I\'m Very Agreeable']")click(fillDiv);
-    // $("#agreeable-form").click(fillDiv);
+
     $("#agreeable-form").click(fillDiv);
   
   // put your code here
@@ -429,17 +422,15 @@
   "use strict";
   function guessANumber() {
     // var num = 50;
-    var num = Math.floor(Math.random()*100) + 1;    
+    var num = Math.floor((Math.random()*100) + 1);    
     var guess = prompt("Guess a number ");
     guess =parseInt(guess);
 
     while (num != guess) {
       if (guess > num) {
        alert("You guessed too high");
-       
-      }
-      else {
-        alert("You guessed too low");
+      } else {
+       alert("You guessed too low");
       }
       var guess = prompt("Guess another number ");
       guess =parseInt(guess);
@@ -489,49 +480,49 @@
 
 <script>
   "use strict";
+   
    function playGame() {
-    // alert ("Youre here");
-    // var num = 50;
-    // var num = Math.floor(Math.random()*100) + 1; 
-    // alert(num); 
-    document.getElementByID("number-guessed").disabled = false; 
-    alert("enabled number-guessed");
-    $(#number-guessed).keypress(sayNumber);
-    document.getElementById("try-this-number").disabled = false;
-    // $("#try-this-number").click(sayNumber);
+    // evt.preventDefault();
     
+     
+     $("#number-guessed").prop('disabled',false);
+    // alert("Got here");
+    // $(#number-guessed).keypress(sayNumber);
+     $("#try-this-number").prop('disabled',false);
+    // $("#try-this-number").click(sayNumber);
+     $("#try-this-number").click(chooseNumber)
+    
+
   }
-  function sayNumber() {
-    var guess = $("number-guessed").val();
-    alert(guess);
+
+  function chooseNumber(evt) {
+    evt.preventDefault();
+    var guess = $("#number-guessed").val();
+    guess = parseInt(guess);
+    var num = Math.floor((Math.random()*100) + 1);
+    alert(num); 
+
+    // $("#number-guessing-msg").html("Guess" + num + guess);
+    if (num != guess) {
+      if (guess > num) {
+        $("#number-guessing-msg").html("You guessed too high");
+      } else if (guess < num) {
+        $("#number-guessing-msg").html("You guessed too low");
+      }
+      $("try-this-number").click(chooseNumber);
+      var guess = $("#number-guessed").val();
+      guess =parseInt(guess);
+      num == num;
+    } else if (num == guess) {
+    $("#number-guessing-msg").html("You guessed right!");
   }
-
-  //   function guessing(string) {
-  //     var num = 50;
-  //     guess =parseInt(string);
-
-  //     while (num != guess) {
-  //     if (guess > num) {
-  //       $("#number-guessing-msg").append("You guessed too high");
-  //     }
-  //     else {
-  //       $("#number-guessing-msg").append("You guessed too low");
-  //     }
-      
-  //     // var guess = prompt("Guess another number ");
-  //     // guess =parseInt(guess);
-  //   }
-  //   alert("You guessed right!");
-  // }
-
-
-
-
-
+  }
+    
 
 
   $("#play-guessing-game-2").click(playGame);
-  // put your code here
+ 
+
 </script>
 
 
